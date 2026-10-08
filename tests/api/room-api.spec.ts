@@ -39,7 +39,6 @@ async function deleteRoom(request: APIRequestContext, roomId: number) {
   expect(response.status()).toBe(202);
 }
 
-// API-001: Create room
 test('API-001: create a room through Admin API and verify it through public API', async ({ request }) => {
   const headers = await loginAsAdmin(request);
   const { room, data } = await createRoom(request, headers);
@@ -50,7 +49,6 @@ test('API-001: create a room through Admin API and verify it through public API'
   }
 });
 
-// API-002: Book room
 test('API-002: book a room through User API and verify it through Admin API', async ({ request }) => {
   const reportResponse = await request.get('/api/report/room/1');
   const { report } = await reportResponse.json() as { report: { start: string; end: string }[] };
@@ -102,7 +100,6 @@ test('API-002: book a room through User API and verify it through Admin API', as
   }
 });
 
-// API-003: Edit room
 test('API-003: edit a room through Admin API and verify changes through public API', async ({ request }) => {
   const headers = await loginAsAdmin(request);
   const { room, data } = await createRoom(request, headers);
@@ -131,7 +128,6 @@ test('API-003: edit a room through Admin API and verify changes through public A
   }
 });
 
-// API-004: Delete room
 test('API-004: delete a room through Admin API and verify deletion through public API', async ({ request }) => {
   const headers = await loginAsAdmin(request);
   const { room } = await createRoom(request, headers);
