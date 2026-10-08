@@ -1,0 +1,75 @@
+Test Case ID: UI-001
+Title: Check that a room can be booked with valid data
+
+Preconditions:
+- The application is available at https://automationintesting.online/.
+- A room has an available future date range.
+- Check Out date is after Check In date.
+
+Test Data:
+- Firstname: Alex
+- Lastname: Tester
+- Email: qa.manual@example.com
+- Phone: 01234567890
+
+Steps:
+1. Open the home page.
+2. Enter available dates in Check In and Check Out.
+3. Click Check Availability.
+4. Click Book now for the chosen room.
+5. Check the selected dates in the room calendar and click Reserve Now.
+6. Fill Firstname, Lastname, Email and Phone with the test data.
+7. Click Reserve Now to submit the booking.
+
+Expected Result:
+- Booking Confirmed is displayed.
+- The confirmation shows the selected check-in and check-out dates.
+
+
+Test Case ID: UI-002
+Title: Check that a room cannot be booked with invalid data
+
+Preconditions:
+- The application is available at https://automationintesting.online/.
+- A room has an available future date range.
+
+Test Data:
+- Firstname: Al
+- Lastname: Tester
+- Email: qa.manual@example.com
+- Phone: 01234567890
+
+Steps:
+1. Open the home page.
+2. Enter available dates in Check In and Check Out.
+3. Click Check Availability.
+4. Click Book now for the chosen room.
+5. Click Reserve Now to open the guest form.
+6. Enter Al in Firstname and fill the other fields with valid data.
+7. Click Reserve Now to submit the booking.
+
+Expected Result:
+- The message "size must be between 3 and 18" is displayed.
+- The guest form stays open.
+- Booking Confirmed is not displayed.
+- No booking is created.
+
+
+Test Case ID: UI-003
+Title: Check that previously booked dates are shown as unavailable
+
+Preconditions:
+- A confirmed booking exists for a known room and future date range.
+- The booked room and dates are known.
+- The same room has another available date range.
+
+Steps:
+1. Open the home page.
+2. Enter a different available date range that does not overlap the existing booking.
+3. Click Check Availability.
+4. Click Book now for the same room.
+5. Use Back or Next in the room calendar if needed to open the month with the booked dates.
+6. Check how the previously booked dates are shown.
+
+Expected Result:
+- The previously booked date range is visibly marked as unavailable in the room calendar.
