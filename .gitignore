@@ -1,0 +1,20 @@
+# Node.js
+node_modules/
+*.log
+.npm/
+
+# Playwright output and browser/auth caches
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+playwright/.auth/
+
+# Local environment variables
+.env
+.env.*
+!.env.example
+
+# TypeScript build output
+dist/
+*.tsbuildinfo
